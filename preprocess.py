@@ -23,7 +23,8 @@ def load_wavs(dataset: str, sr):
     resdict contains all wav files
     '''
     data = {}
-    files = [f for f in glob.glob(os.path.join(dataset, "**/*.wav"), recursive = True)]
+    files = [f for f in glob.glob(os.path.join(dataset, "p[1, 2]/*.wav"), recursive = True)]
+    # files = [f for f in glob.glob(os.path.join(dataset, "**/*.wav"), recursive = True)]
     resdict = {}
     for f in files:
         person = f.split('/')[-1].split('_')[0]
@@ -47,7 +48,8 @@ def wav_to_mcep_file(dataset: str, sr=SAMPLE_RATE, processed_filepath: str = './
     shutil.rmtree(processed_filepath)
     os.makedirs(processed_filepath, exist_ok=True)
 
-    allwavs_cnt = len(glob.glob(f'{dataset}/*/*.wav'))
+    allwavs_cnt = len(glob.glob(f'{dataset}/p[1, 2]/*.wav'))
+    # allwavs_cnt = len(glob.glob(f'{dataset}/*/*.wav'))
     print(f'Total {allwavs_cnt} audio files!')
 
     d = load_wavs(dataset, sr)
