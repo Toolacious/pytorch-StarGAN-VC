@@ -28,7 +28,7 @@ class CommonInfo(metaclass=Singleton):
         ''' return current selected speakers for training
         eg. ['SF2', 'TM1', 'SF1', 'TM2']
         '''
-        p = os.path.join(self.datadir, "*")
+        p = os.path.join(self.datadir, "p[1, 2]")
         all_sub_folder = glob.glob(p)
             
         all_speaker = [s.rsplit('/', maxsplit=1)[1] for s in all_sub_folder]
