@@ -144,7 +144,7 @@ class DomainClassifier(nn.Module):
             Down2d(8, 16, (4,4), (2,2), (1,1)),
             Down2d(16, 32, (4,4), (2,2), (0,1)),
             Down2d(32, 16, (3,4), (1,2), (1,1)),
-            nn.Conv2d(16, 4, (1,4), (1,2), (0,1)),
+            nn.Conv2d(16, 2, (1,4), (1,2), (0,1)),
             nn.AvgPool2d((1,16)),
             nn.LogSoftmax()
         )
